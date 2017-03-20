@@ -1,0 +1,7 @@
+reactWeb_app_root: /opt/reactWeb
+reactWeb_pkg_root: /opt/reactWeb
+reactWeb_web_root: /var/www/reactWeb
+nodejs_version: v5.11.1
+nodejs_sha256sum: d8e30e79a1e4ad56f55ef59facdf913c950e9664528f59f4388e85fdd899dfde
+node_env: "{{ env }}"
+app_name: frontend

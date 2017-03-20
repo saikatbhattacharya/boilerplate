@@ -1,0 +1,24 @@
+{
+  "apps": [
+    {
+      "name": "revizor",
+      "script": "api/server.js",
+      "watch": true,
+      "instances": 4,
+      "ignore_watch": [
+        "logs",
+        "node_modules",
+        ".tmp",
+        ".idea",
+        ".vagrant",
+        ".git"
+      ],
+      "env": {
+        "DEBUG": "fetch:request"
+      },
+      "log_file": "./logs/revizor.log",
+      "out_file": "./logs/revizor.log",
+      "err_file": "./logs/revizor.log"
+    }
+  ]
+}

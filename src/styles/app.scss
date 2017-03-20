@@ -1,0 +1,19 @@
+body {
+  padding-top: $navbar-height;
+  font-size: 16px;
+  overflow-y: scroll;
+}
+.navbar-brand {
+  padding: 15px;
+  img {
+    height: 40px;
+  }
+}
+
+.state_nav {
+  width: 33.3%;
+}
+
+.glyph {
+  float: right;
+}

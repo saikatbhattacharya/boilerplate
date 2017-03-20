@@ -1,0 +1,26 @@
+---
+dependencies:
+  - role: common/react-nginx
+    react_app_base_dirs:
+      - "{{reactWeb_app_root}}"
+      - "{{reactWeb_web_root}}"
+    react_app_name: "{{app_name}}"
+    react_app_package_name: "{{app_name}}"
+    react_app_root: "{{reactWeb_app_root}}"
+    react_pkg_root: "{{reactWeb_pkg_root}}"
+    react_web_root: "{{reactWeb_web_root}}"
+    express_config:
+      quester: "{{ quester_host }}"
+      rods: "{{ rods_host }}"
+      strategy: "{{ strategy }}"
+      auth:
+        entryPoint: "{{ auth_entryPoint | default('entry') }}"
+        cert: "{{ auth_cert | default('cert') }}"
+      elasticsearch: "{{ elasticsearch_host }}"
+      redis:
+        host: "{{ redis_host }}"
+        password: "{{ redis_password }}"
+      graylog:
+        host: "{{ graylog_host }}"
+        port: "{{ graylog_web_port }}"
+      access_token: "{{ quester_auth_token }}"

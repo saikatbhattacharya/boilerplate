@@ -1,0 +1,4 @@
+- name: provision reactWeb frontend
+  hosts: reactWeb-web
+  roles:
+    - reactWeb/frontend

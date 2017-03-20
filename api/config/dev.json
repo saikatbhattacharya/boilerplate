@@ -1,0 +1,15 @@
+{
+  "revizor": "127.0.0.1:3000",
+
+  "strategy": "local",
+
+  "redis": {
+    "host": "localhost",
+    "port": "6379"
+  },
+  "graylog": {
+    "host": "13.66.57.4",
+    "port": "12204"
+  },
+  "access_token": "81d8227374a029ffd8f1acbe792e42a8"
+}

@@ -1,0 +1,6 @@
+[reactWeb-web-lb]
+fusionlb.cloudapp.net ansible_ssh_host=fusionlb.cloudapp.net ansible_ssh_user=nsm ansible_ssh_private_key_file=~/.ssh/nsm
+
+[reactWeb-web]
+fusionwebi.cloudapp.net ansible_ssh_host=fusionwebi.cloudapp.net ansible_ssh_user=nsm ansible_ssh_private_key_file=~/.ssh/nsm
+fusionwebii.cloudapp.net ansible_ssh_host=fusionwebii.cloudapp.net ansible_ssh_user=nsm ansible_ssh_private_key_file=~/.ssh/nsm

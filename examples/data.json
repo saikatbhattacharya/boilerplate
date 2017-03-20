@@ -1,0 +1,75 @@
+{
+  "port": 4200,
+  "protocol": "http",
+  "stubs": [
+    {
+      "predicates": [{
+        "equals": {
+          "method": "get",
+          "path": "/borrowerInformation"
+        }
+      }],
+      "responses": [
+        {
+          "is": {
+            "statusCode": 200,
+            "headers": {
+              "Content-Type": "application/json"
+            },
+            "body": {
+              "name": "Applicant",
+              "ssn": "123-45-6789",
+              "dob": "03/22/1996"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "predicates": [{
+        "equals": {
+          "method": "get",
+          "path": "/coBorrowerInformation"
+        }
+      }],
+      "responses": [
+        {
+          "is": {
+            "statusCode": 200,
+            "headers": {
+              "Content-Type": "application/json"
+            },
+            "body": {
+              "name": "Applicant 2",
+              "ssn": "123-45-6780",
+              "dob": "03/22/1998"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "predicates": [{
+        "equals": {
+          "method": "get",
+          "path": "/propertyInformation"
+        }
+      }],
+      "responses": [
+        {
+          "is": {
+            "statusCode": 200,
+            "headers": {
+              "Content-Type": "application/json"
+            },
+            "body": {
+              "address": "DLF IT Park",
+              "units": "2",
+              "legalDescription": "Legal description"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

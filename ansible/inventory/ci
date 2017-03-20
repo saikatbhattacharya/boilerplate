@@ -1,0 +1,2 @@
+[reactWeb-web]
+ci.web01.reactWeb.nsm ansible_ssh_host=ci.web01.reactWeb.nsm.com ansible_ssh_user=nsm ansible_ssh_private_key_file=~/.ssh/nsm

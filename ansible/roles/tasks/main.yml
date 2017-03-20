@@ -1,0 +1,4 @@
+---
+
+- name: create log directory for new relic
+  file: path={{ reactWeb_web_root }}/logs state=directory
