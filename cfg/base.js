@@ -4,7 +4,6 @@ const sass = require('./sass.js');
 const port = 8100;
 const srcPath = path.join(__dirname, '/../src');
 const publicPath = '/assets/';
-const additionalPaths = [];
 const sassMixins = [
   'vendor-prefixes',
   'forms',
@@ -105,30 +104,58 @@ module.exports = {
       {
         test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
         loader: 'url-loader?limit=10000&mimetype=application/font-woff',
+        query: {
+          outputPath: 'fonts/',
+          publicPath: '../fonts', // That's the important part
+        },
       },
       {
         test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
         loader: 'url-loader?limit=10000&mimetype=application/font-woff',
+        query: {
+          outputPath: 'fonts/',
+          publicPath: '../fonts', // That's the important part
+        },
       },
       {
         test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
         loader: 'url-loader?limit=10000&mimetype=application/octet-stream',
+        query: {
+          outputPath: 'fonts/',
+          publicPath: '../fonts', // That's the important part
+        },
       },
       {
         test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
         loader: 'file-loader',
+        query: {
+          outputPath: 'fonts/',
+          publicPath: '../fonts', // That's the important part
+        },
       },
       {
         test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
         loader: 'url-loader?limit=10000&mimetype=image/svg+xml',
+        query: {
+          outputPath: 'fonts/',
+          publicPath: '../fonts', // That's the important part
+        },
       },
       {
         test: /\.(png|jpg|gif|woff|woff2)$/,
         loader: 'url-loader?limit=8192',
+        query: {
+          outputPath: 'fonts/',
+          publicPath: '../fonts', // That's the important part
+        },
       },
       {
         test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
         loader: 'file-loader',
+        query: {
+          outputPath: 'fonts/',
+          publicPath: '../fonts', // That's the important part
+        },
       },
       {
         test: /\.json$/,

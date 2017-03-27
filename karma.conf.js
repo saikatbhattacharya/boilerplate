@@ -1,3 +1,5 @@
+/* eslint "global-require": 0 */
+
 const webpackCfg = require('./webpack.config');
 
 module.exports = (config) => {
@@ -6,7 +8,7 @@ module.exports = (config) => {
     browsers: ['PhantomJS'],
     files: [
       './node_modules/whatwg-fetch/fetch.js',
-      'test/loadtests.js',
+      'test/unit/loadtests.js',
     ],
     port: 8080,
     captureTimeout: 60000,
@@ -21,9 +23,7 @@ module.exports = (config) => {
       divider: '*',
     },
     preprocessors: {
-      'test/loadtests.js': ['webpack', 'sourcemap'],
-      'src/*.js': ['eslint'],
-      'api/*.js': ['eslint'],
+      'test/unit/loadtests.js': ['webpack', 'sourcemap'],
     },
     webpack: webpackCfg,
     webpackServer: {
@@ -32,7 +32,6 @@ module.exports = (config) => {
     coverageReporter: {
       dir: 'coverage/',
       reporters: [
-        { type: 'html' },
         { type: 'text' },
         { type: 'text-summary' },
       ],

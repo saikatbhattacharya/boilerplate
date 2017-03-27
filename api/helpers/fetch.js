@@ -3,7 +3,7 @@ const _ = require('lodash');
 const logger = require('./logger');
 const config = require('config');
 
-const getRequest = (req) => _.assign({}, req, {
+const getRequest = req => _.assign({}, req, {
   headers: {
     'X-REQUEST-ID': req.requestId,
     Authorization: `Token token=${config.get('access_token')}`,
@@ -34,7 +34,7 @@ function fetch(options) {
   });
 }
 
-module.exports = (req) => ({
+module.exports = req => ({
   get: (url, extraOptions) => {
     const options = _.merge({ method: 'GET', json: true, url, requestId: req.requestId }, extraOptions);
     return fetch(options);

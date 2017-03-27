@@ -1,10 +1,12 @@
 /* eslint no-param-reassign: ["error", { "props": false }]*/
-const uuid = require('node-uuid');
+
+const uuid = require('uuid/v4');
 const winston = require('winston');
 const expressWinston = require('express-winston');
 const WinstonGraylog2 = require('winston-graylog2');
 const grayLogConfig = require('config').get('graylog');
 const _ = require('lodash');
+
 const winstonConsole = new (winston.transports.Console)({
   name: 'console',
   colorize: true,
@@ -20,13 +22,13 @@ const winstonGraylog = new (WinstonGraylog2)({
 });
 const logger = new (winston.Logger)({ transports: [winstonConsole, winstonGraylog] });
 const requestWhitelist = ['url', 'headers', 'method', 'httpVersion',
-'originalUrl', 'query', 'referer', 'requestId', 'userId'];
+  'originalUrl', 'query', 'referer', 'requestId', 'userId'];
 
 exports.requestWhitelist = requestWhitelist;
 
 exports.winston = (req, res, next) => {
   req.referer = req.get('referer');
-  req.requestId = res ? res.get('x-request-id') : uuid.v4();
+  req.requestId = res ? res.get('x-request-id') : uuid();
   req.userId = _.get(req, ['user', 'nameID'], 'anonymous');
   next();
 };
@@ -40,7 +42,7 @@ exports.express = expressWinston.logger({
 
 exports.request = (message, req, res, start) => {
   const end = process.hrtime(start);
-  const responseTime = Math.ceil(end[0] * 1000 + (end[1] / 1000000));
+  const responseTime = Math.ceil(end[0] * (1000 + (end[1] / 1000000)));
   this.info(message, { res, req, responseTime });
 };
 

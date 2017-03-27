@@ -24,7 +24,6 @@ class Header extends Component {
         </Navbar.Header>
         <Nav pullRight>
           <NavDropdown
-            animation={false}
             eventKey={1}
             id="user-dropdown"
             title={userIcon}

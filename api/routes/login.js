@@ -1,4 +1,5 @@
 const express = require('express');
+
 const router = express.Router();
 const config = require('config');
 const path = require('path');
@@ -12,8 +13,7 @@ router.post('/login/callback', auth.authenticate(strategy,
     failureFlash: true,
   }), (req, res) => {
     res.redirect('/');
-  }
-);
+  });
 
 router.get('/login', auth.authenticate(strategy,
   {
@@ -21,8 +21,7 @@ router.get('/login', auth.authenticate(strategy,
     failureFlash: true,
   }), (req, res) => {
     res.redirect('/');
-  }
-);
+  });
 
 router.get('*', auth.protected, (req, res) => {
   res.cookie('user', res.req.user.nameID);

@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { expect } from 'chai';
-import Body from '../../src/containers/Body';
+import Body from '../../../src/containers/Body';
 import { store } from '../stores/defaultMockStore';
 
 

@@ -1,17 +1,34 @@
 const path = require('path');
+
 const srcPath = path.join(__dirname, '/../src');
+
 const webpack = require('webpack');
 const baseConfig = require('./base');
 
 module.exports = {
   devtool: 'eval',
   module: {
-    preLoaders: [
+    rules: [
       {
         test: /\.(js|jsx)$/,
-        loader: 'isparta-instrumenter-loader',
+        loader: 'istanbul-instrumenter-loader',
         include: [
           path.join(__dirname, '/../src'),
+        ],
+        query: {
+          esModules: true,
+        },
+      },
+      {
+        test: /\.(png|jpg|gif|woff|woff2|sass|scss|less|styl)$/,
+        loader: 'null-loader',
+      },
+      {
+        test: /\.(js|jsx)$/,
+        loader: 'babel-loader',
+        include: [
+          path.join(__dirname, '/../src'),
+          path.join(__dirname, '/../test/unit'),
         ],
       },
     ],
@@ -25,7 +42,7 @@ module.exports = {
         loader: 'babel-loader',
         include: [
           path.join(__dirname, '/../src'),
-          path.join(__dirname, '/../test'),
+          path.join(__dirname, '/../test/karma'),
         ],
       },
     ]),

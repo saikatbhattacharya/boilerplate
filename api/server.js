@@ -1,11 +1,15 @@
 /* eslint no-console:0 */
+/* eslint import/no-dynamic-require: 0 */
 const path = require('path');
+
 require(path.join(process.cwd(), 'env'));
+
 process.env.NODE_CONFIG_DIR = path.join(__dirname, 'config');
 
 const nodeEnv = process.env.NODE_ENV;
 const _ = require('lodash');
 const config = require('config');
+
 const redisConfig = _.merge({
   host: 'localhost',
   port: 6379,
@@ -15,6 +19,7 @@ const redisConfig = _.merge({
 
 const express = require('express');
 const compression = require('compression');
+
 const app = express();
 const flash = require('connect-flash');
 const logger = require('./helpers/logger');
@@ -23,10 +28,12 @@ const healthCheck = require('./routes/healthCheck');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const redis = require('redis');
+
 const client = redis.createClient(redisConfig);
 const session = require('express-session');
 const RedisStore = require('connect-redis')(session);
 const auth = require('saavi');
+
 const PORT = (process.env.PORT || 3100);
 const requestId = require('request-id/express');
 
